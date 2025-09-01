@@ -61,7 +61,7 @@
 </head>
 <body class="bg-gray-100 md:p-4 flex items-center justify-center min-h-screen">
 
-    <div id="main-container" class="w-full h-screen md:max-w-sm md:h-[844px] md:max-h-[90vh] mx-auto bg-white md:rounded-2xl md:shadow-lg relative flex flex-col overflow-y-auto">
+    <div id="main-container" class="w-full h-screen md:max-w-sm md:h-[844px] md:max-h-[90vh] mx-auto bg-white md:rounded-2xl md:shadow-lg relative flex flex-col overflow-hidden">
         
         <!-- Page 0: Welcome Screen -->
         <div id="welcome-page" class="flex flex-col flex-grow items-center justify-center text-center p-6">
@@ -90,97 +90,88 @@
         </div>
 
         <!-- Page 1: Language Selection -->
-        <div id="language-page" class="hidden flex-col flex-grow">
-            <div class="p-6 flex-grow">
-                <header class="flex items-center mb-6">
-                    <button class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <div class="ml-4 text-center">
-                        <h1 class="text-lg font-semibold text-gray-800">Please select your language</h1>
-                        <p class="text-sm text-gray-500">कृपया अपनी भाषा चुनें</p>
-                    </div>
-                </header>
-
-                <main class="space-y-3">
-                    <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="english">English</button>
-                    <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="hindi">हिंदी</button>
-                    <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="gujarati">ગુજરાતી</button>
-                    <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="kannada">ಕನ್ನಡ</button>
-                    <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="telugu">తెలుగు</button>
-                    <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="odia">ଓଡ଼ିଆ</button>
-                    <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="tamil">தமிழ்</button>
-                    <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="marathi">मराठी</button>
-                    <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="malayalam">മലയാളം</button>
-                    <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="bengali">বাংলা</button>
-                </main>
-            </div>
-
-            <footer class="relative h-24 mt-auto">
-                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full px-4">
-                     <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)] flex justify-center items-center p-4">
-                        <button id="next-btn" class="w-full py-3 px-4 bg-gray-800 text-white font-semibold rounded-full shadow-md transition-all duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800" disabled>
-                            Next
-                        </button>
-                    </div>
-                </div>
-                <button id="mic-btn-lang" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white rounded-full h-20 w-20 flex items-center justify-center shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+        <div id="language-page" class="hidden flex flex-col h-full">
+            <header class="flex items-center p-6 border-b">
+                <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
                 </button>
+                <div class="ml-4 text-center">
+                    <h1 class="text-lg font-semibold text-gray-800">Please select your language</h1>
+                    <p class="text-sm text-gray-500">कृपया अपनी भाषा चुनें</p>
+                </div>
+            </header>
+            <main class="flex-grow overflow-y-auto p-6 space-y-3">
+                <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="english">English</button>
+                <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="hindi">हिंदी</button>
+                <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="gujarati">ગુજરાતી</button>
+                <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="kannada">ಕನ್ನಡ</button>
+                <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="telugu">తెలుగు</button>
+                <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="odia">ଓଡ଼ିଆ</button>
+                <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="tamil">தமிழ்</button>
+                <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="marathi">मराठी</button>
+                <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="malayalam">മലയാളം</button>
+                <button class="language-btn w-full text-center p-4 border border-gray-200 rounded-lg transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500" data-lang="bengali">বাংলা</button>
+            </main>
+            <footer class="p-4 space-y-4">
+                <button id="next-btn" class="w-full py-3 px-4 bg-gray-800 text-white font-semibold rounded-full shadow-md transition-all duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800" disabled>
+                    Next
+                </button>
+                <div class="relative h-20">
+                    <div class="absolute bottom-0 left-0 right-0 h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)]"></div>
+                    <button id="mic-btn-lang" class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-gray-800 text-white rounded-full h-20 w-20 flex items-center justify-center shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                    </button>
+                </div>
             </footer>
         </div>
 
         <!-- Page 2: Basic Information -->
-        <div id="info-page" class="hidden flex-col flex-grow">
-            <div class="p-6 flex-grow">
-                <header class="flex items-center mb-8">
-                    <button id="back-to-lang-btn" class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    <h1 id="info-title" class="text-lg font-semibold text-gray-800 ml-4">Basic Information</h1>
-                </header>
-
-                <main class="space-y-6">
-                    <div>
-                        <div class="flex justify-between items-center">
-                            <label id="name-label" for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <span id="name-mandatory" class="text-xs text-red-500"></span>
-                        </div>
-                        <div class="relative mt-1">
-                            <input type="text" name="name" id="name" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm pr-10">
-                            <button id="mic-name" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
-                            </button>
-                        </div>
+        <div id="info-page" class="hidden flex flex-col h-full">
+            <header class="flex items-center p-6 border-b">
+                <button id="back-to-lang-btn" class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <h1 id="info-title" class="text-lg font-semibold text-gray-800 ml-4">Basic Information</h1>
+            </header>
+            <main class="flex-grow overflow-y-auto p-6 space-y-6">
+                <div>
+                    <div class="flex justify-between items-center">
+                        <label id="name-label" for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <span id="name-mandatory" class="text-xs text-red-500"></span>
                     </div>
-                    <div>
-                        <div class="flex justify-between items-center">
-                            <label id="phone-label" for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                            <span id="phone-mandatory" class="text-xs text-red-500"></span>
-                        </div>
-                        <div class="relative mt-1">
-                            <input type="tel" name="phone" id="phone" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm pr-10">
-                            <button id="mic-phone" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
-                            </button>
-                        </div>
+                    <div class="relative mt-1">
+                        <input type="text" name="name" id="name" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm pr-10">
+                        <button id="mic-name" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                        </button>
                     </div>
-                    <div>
-                        <label id="location-label" class="block text-sm font-medium text-gray-700">Location</label>
-                        <div class="mt-2 flex space-x-2">
-                            <button class="location-btn flex-1 text-center py-2 px-4 border border-gray-300 rounded-md text-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">City 1</button>
-                            <button class="location-btn flex-1 text-center py-2 px-4 border border-gray-300 rounded-md text-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">City 2</button>
-                            <button class="location-btn flex-1 text-center py-2 px-4 border border-gray-300 rounded-md text-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">City 3</button>
-                        </div>
+                </div>
+                <div>
+                    <div class="flex justify-between items-center">
+                        <label id="phone-label" for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <span id="phone-mandatory" class="text-xs text-red-500"></span>
                     </div>
-                </main>
-            </div>
-
-            <footer class="relative h-24 mt-auto">
+                    <div class="relative mt-1">
+                        <input type="tel" name="phone" id="phone" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm pr-10">
+                        <button id="mic-phone" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <label id="location-label" class="block text-sm font-medium text-gray-700">Location</label>
+                    <div class="mt-2 flex space-x-2">
+                        <button class="location-btn flex-1 text-center py-2 px-4 border border-gray-300 rounded-md text-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">City 1</button>
+                        <button class="location-btn flex-1 text-center py-2 px-4 border border-gray-300 rounded-md text-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">City 2</button>
+                        <button class="location-btn flex-1 text-center py-2 px-4 border border-gray-300 rounded-md text-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500">City 3</button>
+                    </div>
+                </div>
+            </main>
+            <footer class="relative h-24">
                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full px-4">
                      <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)] flex justify-center items-center p-4">
                         <button id="continue-btn" class="w-full py-3 px-4 bg-gray-800 text-white font-semibold rounded-full shadow-md transition-all duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800" disabled>
@@ -192,24 +183,23 @@
         </div>
 
         <!-- Page 3: Home Screen -->
-        <div id="home-page" class="hidden flex-col flex-grow">
-             <div class="p-4 flex-grow">
-                <header class="flex justify-between items-center mb-4">
-                    <button class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    </button>
-                    <h1 id="home-title" class="text-xl font-bold text-gray-800">Home</h1>
-                    <button class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
-                    </button>
-                </header>
-
+        <div id="home-page" class="hidden flex flex-col h-full">
+            <header class="flex justify-between items-center p-4 border-b">
+                <button class="home-header-btn text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </button>
+                <h1 id="home-title" class="text-xl font-bold text-gray-800">Home</h1>
+                <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </header>
+            <main class="flex-grow overflow-y-auto p-4">
                 <div class="relative mb-6">
                     <input id="search-placeholder" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 </div>
 
-                <main class="grid grid-cols-2 gap-4 text-center">
+                <div class="grid grid-cols-2 gap-4 text-center">
                     <div id="find-work-btn" class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.05)] cursor-pointer">
                         <div class="flex justify-center items-center h-16">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18v-6"></path><path d="m9 15 3 3 3-3"></path></svg>
@@ -234,28 +224,12 @@
                         </div>
                         <p id="get-help-text" class="mt-2 font-semibold text-gray-700">Get Help</p>
                     </div>
-                </main>
-            </div>
+                </div>
+            </main>
             <footer class="relative h-24">
                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full px-4">
-                    <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)] flex justify-around items-center text-gray-500">
-                         <button class="home-nav-btn flex flex-col items-center text-indigo-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                            <span class="text-xs font-bold">Home</span>
-                        </button>
-                         <button class="flex flex-col items-center hover:text-indigo-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                            <span class="text-xs">Categories</span>
-                        </button>
-                        <div class="w-16"></div>
-                         <button class="flex flex-col items-center hover:text-indigo-600">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                            <span class="text-xs">Saved</span>
-                        </button>
-                         <button class="flex flex-col items-center hover:text-indigo-600">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                            <span class="text-xs">Profile</span>
-                        </button>
+                    <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)]">
+                         <!-- Navigation items removed -->
                     </div>
                 </div>
                 <button id="mic-btn-home" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white rounded-full h-20 w-20 flex items-center justify-center shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
@@ -265,198 +239,185 @@
         </div>
 
         <!-- Page 4: Find Work -->
-        <div id="find-work-page" class="hidden flex-col flex-grow">
-            <div class="p-4 flex-grow">
-                <header class="flex justify-between items-center mb-4">
-                    <button id="back-to-home-btn-from-find-work" class="text-gray-600 hover:text-gray-900">
+        <div id="find-work-page" class="hidden flex flex-col h-full">
+            <header class="flex justify-between items-center p-4 border-b">
+                <button class="home-header-btn text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </button>
+                <h1 id="find-work-title" class="text-xl font-bold text-gray-800">Find Work</h1>
+                <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </header>
+            <main class="flex-grow overflow-y-auto p-4 space-y-3">
+                <div class="flex items-center gap-2 mb-2">
+                    <button id="back-to-home-btn-from-find-work" class="text-gray-600 hover:text-gray-900 p-2 rounded-full hover:bg-gray-100">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
                     </button>
-                    <h1 id="find-work-title" class="text-xl font-bold text-gray-800">Find Work</h1>
-                    <button class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
-                    </button>
-                </header>
-
-                <div class="relative mb-6">
-                    <input id="find-work-search" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                </div>
-
-                <main class="space-y-3">
-                    <button class="w-full text-left p-4 border border-gray-200 rounded-lg flex items-center space-x-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span id="find-work-location" class="font-semibold">Location</span>
-                    </button>
-                    <button id="state-gujarat" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Gujarat</button>
-                    <button id="state-karnataka" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Karnataka</button>
-                    <button id="state-andhra" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Andhra Pradesh</button>
-                    <button id="state-odisha" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Odisha</button>
-                    <button id="state-tamilnadu" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Tamil Nadu</button>
-                    <button id="state-maharashtra" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Maharashtra</button>
-                    <button id="state-westbengal" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">West Bengal</button>
-                    <button id="state-delhi" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Delhi</button>
-                </main>
-            </div>
-             <footer class="relative h-24 mt-auto">
-                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full px-4">
-                     <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)] flex justify-center items-center p-4">
-                        <button id="next-btn-find-work" class="w-full py-3 px-4 bg-gray-800 text-white font-semibold rounded-full shadow-md transition-all duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800" disabled>
-                            Next
-                        </button>
+                    <div class="relative flex-grow">
+                        <input id="find-work-search" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     </div>
                 </div>
-                <button id="mic-btn-find-work" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white rounded-full h-20 w-20 flex items-center justify-center shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                <button class="w-full text-left p-4 border border-gray-200 rounded-lg flex items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span id="find-work-location" class="font-semibold">Location</span>
                 </button>
+                <button id="state-gujarat" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Gujarat</button>
+                <button id="state-karnataka" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Karnataka</button>
+                <button id="state-andhra" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Andhra Pradesh</button>
+                <button id="state-odisha" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Odisha</button>
+                <button id="state-tamilnadu" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Tamil Nadu</button>
+                <button id="state-maharashtra" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Maharashtra</button>
+                <button id="state-westbengal" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">West Bengal</button>
+                <button id="state-delhi" class="state-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Delhi</button>
+            </main>
+             <footer class="p-4 space-y-4">
+                <button id="next-btn-find-work" class="w-full py-3 px-4 bg-gray-800 text-white font-semibold rounded-full shadow-md transition-all duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800" disabled>
+                    Next
+                </button>
+                <div class="relative h-20">
+                    <div class="absolute bottom-0 left-0 right-0 h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)]"></div>
+                    <button id="mic-btn-find-work" class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-gray-800 text-white rounded-full h-20 w-20 flex items-center justify-center shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                    </button>
+                </div>
             </footer>
         </div>
         
         <!-- Page 5: Work Type -->
-        <div id="work-type-page" class="hidden flex-col flex-grow">
-            <div class="p-4 flex-grow">
-                <header class="flex justify-between items-center mb-4">
-                    <button id="back-to-find-work-btn" class="text-gray-600 hover:text-gray-900">
+        <div id="work-type-page" class="hidden flex flex-col h-full">
+            <header class="flex justify-between items-center p-4 border-b">
+                <button class="home-header-btn text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </button>
+                <h1 id="work-type-title" class="text-xl font-bold text-gray-800">Find Work</h1>
+                <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </header>
+            <main class="flex-grow overflow-y-auto p-4 space-y-3">
+                <div class="flex items-center gap-2 mb-2">
+                    <button id="back-to-find-work-btn" class="text-gray-600 hover:text-gray-900 p-2 rounded-full hover:bg-gray-100">
                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
                     </button>
-                    <h1 id="work-type-title" class="text-xl font-bold text-gray-800">Find Work</h1>
-                    <button class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
-                    </button>
-                </header>
-
-                <div class="relative mb-6">
-                    <input id="work-type-search" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                </div>
-
-                <main class="space-y-3">
-                    <button class="w-full text-left p-4 border border-gray-200 rounded-lg flex items-center space-x-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5z"></path><path d="M18 9h2a2 2 0 0 1 2 2v9l-4-4h-3a2 2 0 0 1-2-2v-1"></path></svg>
-                        <span id="work-type-label" class="font-semibold">Type</span>
-                    </button>
-                    <button id="type-carpenter" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Carpenter</button>
-                    <button id="type-mason" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Mason</button>
-                    <button id="type-painter" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Painter</button>
-                    <button id="type-plumber" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Plumber</button>
-                    <button id="type-electrician" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Electrician</button>
-                    <button id="type-welder" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Welder</button>
-                    <button id="type-gcl" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">General construction labor</button>
-                    <button id="type-all" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">All of the above</button>
-                </main>
-            </div>
-             <footer class="relative h-24 mt-auto">
-                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full px-4">
-                     <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)] flex justify-center items-center p-4">
-                        <button id="next-btn-work-type" class="w-full py-3 px-4 bg-gray-800 text-white font-semibold rounded-full shadow-md transition-all duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800" disabled>
-                            Find Jobs
-                        </button>
+                    <div class="relative flex-grow">
+                        <input id="work-type-search" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     </div>
                 </div>
-                <button id="mic-btn-work-type" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white rounded-full h-20 w-20 flex items-center justify-center shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 transition-colors duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                <button class="w-full text-left p-4 border border-gray-200 rounded-lg flex items-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5z"></path><path d="M18 9h2a2 2 0 0 1 2 2v9l-4-4h-3a2 2 0 0 1-2-2v-1"></path></svg>
+                    <span id="work-type-label" class="font-semibold">Type</span>
                 </button>
+                <button id="type-carpenter" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Carpenter</button>
+                <button id="type-mason" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Mason</button>
+                <button id="type-painter" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Painter</button>
+                <button id="type-plumber" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Plumber</button>
+                <button id="type-electrician" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Electrician</button>
+                <button id="type-welder" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">Welder</button>
+                <button id="type-gcl" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">General construction labor</button>
+                <button id="type-all" class="work-type-btn w-full text-center p-3 bg-white border border-gray-200 rounded-lg shadow-sm">All of the above</button>
+            </main>
+             <footer class="p-4 space-y-4">
+                <button id="next-btn-work-type" class="w-full py-3 px-4 bg-gray-800 text-white font-semibold rounded-full shadow-md transition-all duration-300 disabled:bg-gray-300 disabled:cursor-not-allowed hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800" disabled>
+                    Find Jobs
+                </button>
+                <div class="relative h-20">
+                    <div class="absolute bottom-0 left-0 right-0 h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)]"></div>
+                    <button id="mic-btn-work-type" class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-gray-800 text-white rounded-full h-20 w-20 flex items-center justify-center shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                    </button>
+                </div>
             </footer>
         </div>
         
         <!-- Page 6: Mason Job Listings -->
-        <div id="mason-jobs-page" class="hidden flex-col flex-grow">
-            <div class="p-4 flex-grow">
-                 <header class="flex justify-between items-center mb-4">
-                    <button id="back-to-work-type-from-mason-btn" class="text-gray-600 hover:text-gray-900">
+        <div id="mason-jobs-page" class="hidden flex flex-col h-full">
+            <header class="flex justify-between items-center p-4 border-b">
+                <button class="home-header-btn text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </button>
+                <h1 id="mason-jobs-title" class="text-xl font-bold text-gray-800">Find Work</h1>
+                <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </header>
+            <main class="flex-grow overflow-y-auto p-4 space-y-4">
+                <div class="flex items-center gap-2 mb-2">
+                    <button id="back-to-work-type-from-mason-btn" class="text-gray-600 hover:text-gray-900 p-2 rounded-full hover:bg-gray-100">
                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
                     </button>
-                    <h1 id="mason-jobs-title" class="text-xl font-bold text-gray-800">Find Work</h1>
-                     <button class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
-                    </button>
-                </header>
-                 <div class="relative mb-6">
-                    <input id="mason-search-placeholder" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <div class="relative flex-grow">
+                        <input id="mason-search-placeholder" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
                 </div>
-                <main class="space-y-4">
-                    <!-- Job Card 1 -->
-                    <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
-                        <h3 class="font-semibold text-gray-800">MetroBuild Infrastructure</h3>
-                        <div class="flex items-center text-sm text-yellow-500 my-1">
-                           ★★★★☆ <span class="text-gray-500 ml-2">(110 reviews)</span>
-                        </div>
-                        <div class="text-sm text-gray-600">
-                            <p><span class="font-semibold">Job:</span> Mason Helper</p>
-                            <p><span class="font-semibold">Daily pay:</span> ₹500-600</p>
-                            <p>Delhi, NCR</p>
-                        </div>
+                <!-- Job Card 1 -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
+                    <h3 class="font-semibold text-gray-800">MetroBuild Infrastructure</h3>
+                    <div class="flex items-center text-sm text-yellow-500 my-1">
+                       ★★★★☆ <span class="text-gray-500 ml-2">(110 reviews)</span>
                     </div>
-                     <!-- Job Card 2 -->
-                    <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
-                        <h3 class="font-semibold text-gray-800">Skyline Housing Projects</h3>
-                        <div class="flex items-center text-sm text-yellow-500 my-1">
-                           ★★★★☆ <span class="text-gray-500 ml-2">(92 reviews)</span>
-                        </div>
-                        <div class="text-sm text-gray-600">
-                            <p><span class="font-semibold">Job:</span> Mason Helper</p>
-                            <p><span class="font-semibold">Daily pay:</span> ₹480-580</p>
-                            <p>Mumbai, Maharashtra</p>
-                        </div>
+                    <div class="text-sm text-gray-600">
+                        <p><span class="font-semibold">Job:</span> Mason Helper</p>
+                        <p><span class="font-semibold">Daily pay:</span> ₹500-600</p>
+                        <p>Delhi, NCR</p>
                     </div>
-                     <!-- Job Card 3 -->
-                    <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
-                        <h3 class="font-semibold text-gray-800">Rajpath Builders & Developers</h3>
-                        <div class="flex items-center text-sm text-yellow-500 my-1">
-                           ★★★☆☆ <span class="text-gray-500 ml-2">(73 reviews)</span>
-                        </div>
-                        <div class="text-sm text-gray-600">
-                            <p><span class="font-semibold">Job:</span> Mason Helper</p>
-                            <p><span class="font-semibold">Daily pay:</span> ₹400-500</p>
-                            <p>Jaipur, Rajasthan</p>
-                        </div>
+                </div>
+                 <!-- Job Card 2 -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
+                    <h3 class="font-semibold text-gray-800">Skyline Housing Projects</h3>
+                    <div class="flex items-center text-sm text-yellow-500 my-1">
+                       ★★★★☆ <span class="text-gray-500 ml-2">(92 reviews)</span>
                     </div>
-                     <!-- Job Card 4 -->
-                    <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
-                        <h3 class="font-semibold text-gray-800">UrbanRise Constructions</h3>
-                        <div class="flex items-center text-sm text-yellow-500 my-1">
-                           ★★★★☆ <span class="text-gray-500 ml-2">(101 reviews)</span>
-                        </div>
-                        <div class="text-sm text-gray-600">
-                            <p><span class="font-semibold">Job:</span> Mason Helper</p>
-                            <p><span class="font-semibold">Daily pay:</span> ₹520-650</p>
-                            <p>Bengaluru, Karnataka</p>
-                        </div>
+                    <div class="text-sm text-gray-600">
+                        <p><span class="font-semibold">Job:</span> Mason Helper</p>
+                        <p><span class="font-semibold">Daily pay:</span> ₹480-580</p>
+                        <p>Mumbai, Maharashtra</p>
                     </div>
-                     <!-- Job Card 5 -->
-                    <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
-                        <h3 class="font-semibold text-gray-800">Golden Gate Infra Projects</h3>
-                        <div class="flex items-center text-sm text-yellow-500 my-1">
-                           ★★★☆☆ <span class="text-gray-500 ml-2">(66 reviews)</span>
-                        </div>
-                        <div class="text-sm text-gray-600">
-                            <p><span class="font-semibold">Job:</span> Mason Helper</p>
-                            <p><span class="font-semibold">Daily pay:</span> ₹420-520</p>
-                            <p>Lucknow, Uttar Pradesh</p>
-                        </div>
+                </div>
+                 <!-- Job Card 3 -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
+                    <h3 class="font-semibold text-gray-800">Rajpath Builders & Developers</h3>
+                    <div class="flex items-center text-sm text-yellow-500 my-1">
+                       ★★★☆☆ <span class="text-gray-500 ml-2">(73 reviews)</span>
                     </div>
-                </main>
-            </div>
+                    <div class="text-sm text-gray-600">
+                        <p><span class="font-semibold">Job:</span> Mason Helper</p>
+                        <p><span class="font-semibold">Daily pay:</span> ₹400-500</p>
+                        <p>Jaipur, Rajasthan</p>
+                    </div>
+                </div>
+                 <!-- Job Card 4 -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
+                    <h3 class="font-semibold text-gray-800">UrbanRise Constructions</h3>
+                    <div class="flex items-center text-sm text-yellow-500 my-1">
+                       ★★★★☆ <span class="text-gray-500 ml-2">(101 reviews)</span>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <p><span class="font-semibold">Job:</span> Mason Helper</p>
+                        <p><span class="font-semibold">Daily pay:</span> ₹520-650</p>
+                        <p>Bengaluru, Karnataka</p>
+                    </div>
+                </div>
+                 <!-- Job Card 5 -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
+                    <h3 class="font-semibold text-gray-800">Golden Gate Infra Projects</h3>
+                    <div class="flex items-center text-sm text-yellow-500 my-1">
+                       ★★★☆☆ <span class="text-gray-500 ml-2">(66 reviews)</span>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <p><span class="font-semibold">Job:</span> Mason Helper</p>
+                        <p><span class="font-semibold">Daily pay:</span> ₹420-520</p>
+                        <p>Lucknow, Uttar Pradesh</p>
+                    </div>
+                </div>
+            </main>
              <footer class="relative h-24 mt-auto">
                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full px-4">
-                    <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)] flex justify-around items-center text-gray-500">
-                         <button class="home-nav-btn flex flex-col items-center text-indigo-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                            <span class="text-xs font-bold">Home</span>
-                        </button>
-                         <button class="flex flex-col items-center hover:text-indigo-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                            <span class="text-xs">Categories</span>
-                        </button>
-                        <div class="w-16"></div>
-                         <button class="flex flex-col items-center hover:text-indigo-600">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                            <span class="text-xs">Saved</span>
-                        </button>
-                         <button class="flex flex-col items-center hover:text-indigo-600">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                            <span class="text-xs">Profile</span>
-                        </button>
+                    <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)]">
+                         <!-- Navigation items removed -->
                     </div>
                 </div>
                 <button id="mic-btn-mason-jobs" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white rounded-full h-20 w-20 flex items-center justify-center shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 transition-colors duration-300">
@@ -466,65 +427,66 @@
         </div>
 
         <!-- Page 7: Community Chat -->
-        <div id="community-chat-page" class="hidden flex-col flex-grow">
-            <div class="p-4 flex-grow">
-                <header class="flex justify-between items-center mb-4">
-                    <button id="back-to-home-from-chat-btn" class="text-gray-600 hover:text-gray-900">
+        <div id="community-chat-page" class="hidden flex flex-col h-full">
+            <header class="flex justify-between items-center p-4 border-b">
+                <button class="home-header-btn text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </button>
+                <h1 id="community-chat-title" class="text-xl font-bold text-gray-800">Community Chat</h1>
+                <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </header>
+            <main class="flex-grow overflow-y-auto p-4 space-y-4">
+                <div class="flex items-center gap-2 mb-2">
+                    <button id="back-to-home-from-chat-btn" class="text-gray-600 hover:text-gray-900 p-2 rounded-full hover:bg-gray-100">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
                     </button>
-                    <h1 id="community-chat-title" class="text-xl font-bold text-gray-800">Community Chat</h1>
-                    <button class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
-                    </button>
-                </header>
-
-                <div class="relative mb-6">
-                    <input id="chat-search-placeholder" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <div class="relative flex-grow">
+                        <input id="chat-search-placeholder" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
                 </div>
-
-                <main class="space-y-4">
-                    <!-- Chat Item 1 -->
-                    <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
-                        <h3 class="font-semibold text-gray-800">Water supply not working in Block C</h3>
-                        <p class="text-sm text-gray-500">Rohan Sharma</p>
-                        <div class="flex items-center justify-between text-sm text-gray-500">
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Open</span>
-                            <div class="flex items-center space-x-4">
-                                <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>4</span>
-                                <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>3</span>
-                                <span>2 hours ago</span>
-                            </div>
+                <!-- Chat Item 1 -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
+                    <h3 class="font-semibold text-gray-800">Water supply not working in Block C</h3>
+                    <p class="text-sm text-gray-500">Rohan Sharma</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Open</span>
+                        <div class="flex items-center space-x-4">
+                            <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>4</span>
+                            <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>3</span>
+                            <span>2 hours ago</span>
                         </div>
                     </div>
-                    <!-- Chat Item 2 -->
-                    <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
-                        <h3 class="font-semibold text-gray-800">Broken handrail in staircase</h3>
-                        <p class="text-sm text-gray-500">Priya Patel</p>
-                        <div class="flex items-center justify-between text-sm text-gray-500">
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">Closed</span>
-                            <div class="flex items-center space-x-4">
-                                <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>4</span>
-                                <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>1</span>
-                                <span>4 hours ago</span>
-                            </div>
+                </div>
+                <!-- Chat Item 2 -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
+                    <h3 class="font-semibold text-gray-800">Broken handrail in staircase</h3>
+                    <p class="text-sm text-gray-500">Priya Patel</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">Closed</span>
+                        <div class="flex items-center space-x-4">
+                            <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>4</span>
+                            <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>1</span>
+                            <span>4 hours ago</span>
                         </div>
                     </div>
-                    <!-- Chat Item 3 -->
-                    <div class="bg-white p-4 rounded-lg border-2 border-blue-500 space-y-2">
-                        <h3 class="font-semibold text-gray-800">Gas leakage in room 105</h3>
-                        <p class="text-sm text-gray-500">Amit Singh</p>
-                        <div class="flex items-center justify-between text-sm text-gray-500">
-                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">In Progress</span>
-                            <div class="flex items-center space-x-4">
-                                <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>4</span>
-                                <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>2</span>
-                                <span>1 day ago</span>
-                            </div>
+                </div>
+                <!-- Chat Item 3 -->
+                <div class="bg-white p-4 rounded-lg border-2 border-blue-500 space-y-2">
+                    <h3 class="font-semibold text-gray-800">Gas leakage in room 105</h3>
+                    <p class="text-sm text-gray-500">Amit Singh</p>
+                    <div class="flex items-center justify-between text-sm text-gray-500">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">In Progress</span>
+                        <div class="flex items-center space-x-4">
+                            <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>4</span>
+                            <span class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>2</span>
+                            <span>1 day ago</span>
                         </div>
                     </div>
-                </main>
-            </div>
+                </div>
+            </main>
             <footer class="relative h-24 mt-auto">
                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full px-4">
                     <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)] flex justify-around items-center text-gray-500">
@@ -554,88 +516,75 @@
         </div>
 
         <!-- Page 8: Rate Workplace -->
-        <div id="rate-workplace-page" class="hidden flex-col flex-grow">
-            <div class="p-4 flex-grow">
-                <header class="flex justify-between items-center mb-4">
-                    <button id="back-to-home-from-rate-btn" class="text-gray-600 hover:text-gray-900">
+        <div id="rate-workplace-page" class="hidden flex flex-col h-full">
+            <header class="flex justify-between items-center p-4 border-b">
+                <button class="home-header-btn text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </button>
+                <h1 id="rate-workplace-title" class="text-xl font-bold text-gray-800">Rate Workplace</h1>
+                <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </header>
+            <main class="flex-grow overflow-y-auto p-4 space-y-6">
+                 <div class="flex items-center gap-2 mb-2">
+                    <button id="back-to-home-from-rate-btn" class="text-gray-600 hover:text-gray-900 p-2 rounded-full hover:bg-gray-100">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
                     </button>
-                    <h1 id="rate-workplace-title" class="text-xl font-bold text-gray-800">Rate Workplace</h1>
-                    <button class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
-                    </button>
-                </header>
-
-                <div class="relative mb-6">
-                    <input id="rate-search-placeholder" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <div class="relative flex-grow">
+                        <input id="rate-search-placeholder" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
                 </div>
-
-                <main class="space-y-6">
-                    <div class="flex justify-around items-center">
-                        <button class="smiley-btn rounded-full transition-transform duration-200"><svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#4ade80"/><path d="M20 25 Q30 38 40 25" stroke="black" stroke-width="3" fill="none"/><circle cx="22" cy="22" r="3" fill="black"/><circle cx="38" cy="22" r="3" fill="black"/></svg></button>
-                        <button class="smiley-btn rounded-full transition-transform duration-200"><svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#facc15"/><line x1="20" y1="35" x2="40" y2="35" stroke="black" stroke-width="3"/><circle cx="22" cy="22" r="3" fill="black"/><circle cx="38" cy="22" r="3" fill="black"/></svg></button>
-                        <button class="smiley-btn rounded-full transition-transform duration-200"><svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#f87171"/><path d="M20 38 Q30 25 40 38" stroke="black" stroke-width="3" fill="none"/><circle cx="22" cy="22" r="3" fill="black"/><circle cx="38" cy="22" r="3" fill="black"/></svg></button>
+                <div class="flex justify-around items-center">
+                    <button class="smiley-btn rounded-full transition-transform duration-200" data-rating="good"><svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#4ade80"/><path d="M20 25 Q30 38 40 25" stroke="black" stroke-width="3" fill="none"/><circle cx="22" cy="22" r="3" fill="black"/><circle cx="38" cy="22" r="3" fill="black"/></svg></button>
+                    <button class="smiley-btn rounded-full transition-transform duration-200" data-rating="neutral"><svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#facc15"/><line x1="20" y1="35" x2="40" y2="35" stroke="black" stroke-width="3"/><circle cx="22" cy="22" r="3" fill="black"/><circle cx="38" cy="22" r="3" fill="black"/></svg></button>
+                    <button class="smiley-btn rounded-full transition-transform duration-200" data-rating="bad"><svg width="60" height="60" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#f87171"/><path d="M20 38 Q30 25 40 38" stroke="black" stroke-width="3" fill="none"/><circle cx="22" cy="22" r="3" fill="black"/><circle cx="38" cy="22" r="3" fill="black"/></svg></button>
+                </div>
+                <div>
+                    <label id="company-name-label" for="company-name" class="block text-sm font-medium text-gray-700">Name of the company</label>
+                    <div class="relative mt-1">
+                        <input type="text" id="company-name" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm pr-10">
+                        <button id="mic-company-name" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                        </button>
                     </div>
-
-                    <div>
-                        <label id="company-name-label" for="company-name" class="block text-sm font-medium text-gray-700">Name of the company</label>
-                        <div class="relative mt-1">
-                            <input type="text" id="company-name" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm pr-10">
-                            <button id="mic-company-name" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
-                            </button>
-                        </div>
+                </div>
+                <div>
+                    <label id="pay-label" for="pay" class="block text-sm font-medium text-gray-700">Pay</label>
+                    <div class="relative mt-1">
+                        <input type="text" id="pay" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm pr-10">
+                        <button id="mic-pay" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                        </button>
                     </div>
-                    <div>
-                        <label id="pay-label" for="pay" class="block text-sm font-medium text-gray-700">Pay</label>
-                        <div class="relative mt-1">
-                            <input type="text" id="pay" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm pr-10">
-                            <button id="mic-pay" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
-                            </button>
-                        </div>
+                </div>
+                <div>
+                    <label id="manager-label" for="manager" class="block text-sm font-medium text-gray-700">Manager <span id="manager-optional-span" class="text-gray-400">(Optional)</span></label>
+                    <div class="relative mt-1">
+                        <input type="text" id="manager" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm pr-10">
+                        <button id="mic-manager" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                        </button>
                     </div>
-                    <div>
-                        <label id="manager-label" for="manager" class="block text-sm font-medium text-gray-700">Manager <span id="manager-optional-span" class="text-gray-400">(Optional)</span></label>
-                        <div class="relative mt-1">
-                            <input type="text" id="manager" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm pr-10">
-                            <button id="mic-manager" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
-                            </button>
-                        </div>
+                </div>
+                <div>
+                    <label id="experience-label" for="experience" class="block text-sm font-medium text-gray-700">Experience</label>
+                    <div class="relative mt-1">
+                        <textarea id="experience" rows="4" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm pr-10"></textarea>
+                        <button id="mic-experience" class="absolute top-2 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                        </button>
                     </div>
-                    <div>
-                        <label id="experience-label" for="experience" class="block text-sm font-medium text-gray-700">Experience</label>
-                        <div class="relative mt-1">
-                            <textarea id="experience" rows="4" class="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm pr-10"></textarea>
-                            <button id="mic-experience" class="absolute top-2 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
-                            </button>
-                        </div>
-                    </div>
-                </main>
-            </div>
+                </div>
+                 <button id="submit-rating-btn" class="w-full py-3 px-4 bg-gray-800 text-white font-semibold rounded-full shadow-md transition-all duration-300 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
+                    Submit
+                </button>
+            </main>
             <footer class="relative h-24 mt-auto">
                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full px-4">
-                    <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)] flex justify-around items-center text-gray-500">
-                         <button class="home-nav-btn flex flex-col items-center text-indigo-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                            <span class="text-xs font-bold">Home</span>
-                        </button>
-                         <button class="flex flex-col items-center hover:text-indigo-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                            <span class="text-xs">Categories</span>
-                        </button>
-                        <div class="w-16"></div>
-                         <button class="flex flex-col items-center hover:text-indigo-600">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                            <span class="text-xs">Saved</span>
-                        </button>
-                         <button class="flex flex-col items-center hover:text-indigo-600">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                            <span class="text-xs">Profile</span>
-                        </button>
+                    <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)]">
+                         <!-- Navigation items removed -->
                     </div>
                 </div>
                 <button id="mic-btn-rate" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white rounded-full h-20 w-20 flex items-center justify-center shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 transition-colors duration-300">
@@ -645,92 +594,86 @@
         </div>
 
         <!-- Page 9: Get Help -->
-        <div id="get-help-page" class="hidden flex-col flex-grow">
-            <div class="p-4 flex-grow">
-                <header class="flex justify-between items-center mb-4">
-                    <button id="back-to-home-from-get-help-btn" class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
-                    </button>
-                    <h1 id="get-help-title" class="text-xl font-bold text-gray-800">Get Help</h1>
-                    <button class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
-                    </button>
-                </header>
-                <main class="text-center">
-                    <p>Help page content goes here.</p>
-                </main>
-            </div>
+        <div id="get-help-page" class="hidden flex flex-col h-full">
+            <header class="flex justify-between items-center p-4 border-b">
+                <button class="home-header-btn text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </button>
+                <h1 id="get-help-title" class="text-xl font-bold text-gray-800">Get Help</h1>
+                <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </header>
+            <main class="flex-grow overflow-y-auto p-4 text-center">
+                <p>Help page content goes here.</p>
+            </main>
         </div>
 
         <!-- Page 10: Carpenter Job Listings -->
-        <div id="carpenter-jobs-page" class="hidden flex-col flex-grow">
-            <div class="p-4 flex-grow">
-                 <header class="flex justify-between items-center mb-4">
-                    <button id="back-to-work-type-from-carpenter-btn" class="text-gray-600 hover:text-gray-900">
+        <div id="carpenter-jobs-page" class="hidden flex flex-col h-full">
+            <header class="flex justify-between items-center p-4 border-b">
+                 <button class="home-header-btn text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </button>
+                <h1 id="carpenter-jobs-title" class="text-xl font-bold text-gray-800">Find Work</h1>
+                 <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </header>
+            <main class="flex-grow overflow-y-auto p-4 space-y-4">
+                <div class="flex items-center gap-2 mb-2">
+                    <button id="back-to-work-type-from-carpenter-btn" class="text-gray-600 hover:text-gray-900 p-2 rounded-full hover:bg-gray-100">
                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
                     </button>
-                    <h1 id="carpenter-jobs-title" class="text-xl font-bold text-gray-800">Find Work</h1>
-                     <button class="text-gray-600 hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
-                    </button>
-                </header>
-                 <div class="relative mb-6">
-                    <input id="carpenter-search-placeholder" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <div class="relative flex-grow">
+                        <input id="carpenter-search-placeholder" type="text" placeholder="Search here" class="w-full bg-gray-100 border-none rounded-full py-3 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
                 </div>
-                <main class="space-y-4">
-                    <!-- Job Card 1 -->
-                    <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
-                        <h3 class="font-semibold text-gray-800">WoodCraft Interiors</h3>
-                        <div class="flex items-center text-sm text-yellow-500 my-1">
-                           ★★★★☆ <span class="text-gray-500 ml-2">(88 reviews)</span>
-                        </div>
-                        <div class="text-sm text-gray-600">
-                            <p><span class="font-semibold">Job:</span> Carpenter</p>
-                            <p><span class="font-semibold">Daily pay:</span> ₹700-850</p>
-                            <p>Bengaluru, Karnataka</p>
-                        </div>
+                <!-- Job Card 1 -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
+                    <h3 class="font-semibold text-gray-800">WoodCraft Interiors</h3>
+                    <div class="flex items-center text-sm text-yellow-500 my-1">
+                       ★★★★☆ <span class="text-gray-500 ml-2">(88 reviews)</span>
                     </div>
-                     <!-- Job Card 2 -->
-                    <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
-                        <h3 class="font-semibold text-gray-800">FineFinish Furnitures</h3>
-                        <div class="flex items-center text-sm text-yellow-500 my-1">
-                           ★★★★★ <span class="text-gray-500 ml-2">(120 reviews)</span>
-                        </div>
-                        <div class="text-sm text-gray-600">
-                            <p><span class="font-semibold">Job:</span> Carpenter</p>
-                            <p><span class="font-semibold">Daily pay:</span> ₹750-900</p>
-                            <p>Pune, Maharashtra</p>
-                        </div>
+                    <div class="text-sm text-gray-600">
+                        <p><span class="font-semibold">Job:</span> Carpenter</p>
+                        <p><span class="font-semibold">Daily pay:</span> ₹700-850</p>
+                        <p>Bengaluru, Karnataka</p>
                     </div>
-                </main>
-            </div>
+                </div>
+                 <!-- Job Card 2 -->
+                <div class="bg-white p-4 rounded-lg border border-gray-200 space-y-2">
+                    <h3 class="font-semibold text-gray-800">FineFinish Furnitures</h3>
+                    <div class="flex items-center text-sm text-yellow-500 my-1">
+                       ★★★★★ <span class="text-gray-500 ml-2">(120 reviews)</span>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <p><span class="font-semibold">Job:</span> Carpenter</p>
+                        <p><span class="font-semibold">Daily pay:</span> ₹750-900</p>
+                        <p>Pune, Maharashtra</p>
+                    </div>
+                </div>
+            </main>
              <footer class="relative h-24 mt-auto">
                 <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full px-4">
-                    <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)] flex justify-around items-center text-gray-500">
-                         <button class="home-nav-btn flex flex-col items-center text-indigo-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                            <span class="text-xs font-bold">Home</span>
-                        </button>
-                         <button class="flex flex-col items-center hover:text-indigo-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                            <span class="text-xs">Categories</span>
-                        </button>
-                        <div class="w-16"></div>
-                         <button class="flex flex-col items-center hover:text-indigo-600">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                            <span class="text-xs">Saved</span>
-                        </button>
-                         <button class="flex flex-col items-center hover:text-indigo-600">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                            <span class="text-xs">Profile</span>
-                        </button>
+                    <div class="w-full h-16 bg-white rounded-t-3xl shadow-[0_-8px_30px_rgb(0,0,0,0.08)]">
+                        <!-- Navigation items removed -->
                     </div>
                 </div>
                 <button id="mic-btn-carpenter-jobs" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-800 text-white rounded-full h-20 w-20 flex items-center justify-center shadow-lg hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 transition-colors duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
                 </button>
             </footer>
+        </div>
+
+        <!-- Splash Screen for Rating Submission -->
+        <div id="rating-splash-screen" class="hidden absolute inset-0 bg-white z-50 flex-col items-center justify-center text-center p-6">
+            <svg class="h-16 w-16 text-green-500 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h2 class="text-2xl font-bold text-gray-800">Success!</h2>
+            <p class="text-gray-600 mt-2">Your ratings have been submitted securely!</p>
         </div>
 
     </div>
@@ -749,19 +692,21 @@
         const rateWorkplacePage = document.getElementById('rate-workplace-page');
         const getHelpPage = document.getElementById('get-help-page');
         const carpenterJobsPage = document.getElementById('carpenter-jobs-page');
+        const ratingSplashScreen = document.getElementById('rating-splash-screen');
         
         const grooveCircle = document.getElementById('groove-circle');
         const languageButtons = document.querySelectorAll('.language-btn');
         const locationButtons = document.querySelectorAll('.location-btn');
         const stateButtons = document.querySelectorAll('.state-btn');
         const workTypeButtons = document.querySelectorAll('.work-type-btn');
-        const homeNavButtons = document.querySelectorAll('.home-nav-btn');
+        const homeNavButtons = document.querySelectorAll('.home-nav-btn, .home-header-btn');
         const smileyButtons = document.querySelectorAll('.smiley-btn');
         
         const nextButton = document.getElementById('next-btn');
         const nextBtnFindWork = document.getElementById('next-btn-find-work');
         const nextBtnWorkType = document.getElementById('next-btn-work-type');
         const continueButton = document.getElementById('continue-btn');
+        const submitRatingBtn = document.getElementById('submit-rating-btn');
         const backToLangButton = document.getElementById('back-to-lang-btn');
         const findWorkButton = document.getElementById('find-work-btn');
         const rateWorkplaceButton = document.getElementById('rate-workplace-btn');
@@ -776,6 +721,7 @@
         const backToWorkTypeFromCarpenterButton = document.getElementById('back-to-work-type-from-carpenter-btn');
         
         const micButtonLang = document.getElementById('mic-btn-lang');
+        const micButtonHome = document.getElementById('mic-btn-home');
         const micNameButton = document.getElementById('mic-name');
         const micPhoneButton = document.getElementById('mic-phone');
         const micFindWorkButton = document.getElementById('mic-btn-find-work');
@@ -818,7 +764,7 @@
             "search": { "hindi": "यहां खोजें", "gujarati": "અહીં શોધો", "kannada": "ಇಲ್ಲಿ ಹುಡುಕಿ", "telugu": "ఇక్కడ శోధించండి", "odia": "ଏଠାରେ ଖୋଜନ୍ତୁ", "tamil": "இங்கே தேடவும்", "marathi": "येथे शोधा", "malayalam": "ഇവിടെ തിരയുക", "bengali": "এখানে অনুসন্ধান করুন", "english": "Search here" },
             "find_work": { "hindi": "काम खोजें", "gujarati": "કામ શોધો", "kannada": "ಕೆಲಸ ಹುಡುಕಿ", "telugu": "పనిని కనుగొనండి", "odia": "କାମ ଖୋଜନ୍ତୁ", "tamil": "வேலையைக் கண்டுபிடி", "marathi": "काम શોधा", "malayalam": "ജോലി കണ്ടെത്തുക", "bengali": "কাজ খুঁজুন", "english": "Find Work" },
             "find_jobs": { "hindi": "नौकरियां खोजें", "gujarati": "નોકરીઓ શોધો", "kannada": "ಉದ್ಯೋಗಗಳನ್ನು ಹುಡುಕಿ", "telugu": "ఉద్యోగాలను కనుగొనండి", "odia": "ଚାକିରି ଖୋଜନ୍ତୁ", "tamil": "வேலைகளைக் கண்டுபிடி", "marathi": "नोकरी શોधा", "malayalam": "ജോലികൾ കണ്ടെത്തുക", "bengali": "চাকরি খুঁজুন", "english": "Find Jobs" },
-            "community_chat": { "hindi": "सामुदायिक चैट", "gujarati": "સમુદાય ચેટ", "kannada": "ಸಮುದಾಯ ಚಾಟ್", "telugu": "కమ్యూనిటీ చాట్", "odia": "ସମ୍ପ୍ରଦାୟ ଚାଟ୍", "tamil": "சமூக அரட்டை", "marathi": "समुदाय गप्पा", "malayalam": "കമ്മ്യൂనిറ്റി ചാറ്റ്", "bengali": "কমিউনিটি চ্যাট", "english": "Community chat" },
+            "community_chat": { "hindi": "सामुदायिक चैट", "gujarati": "સમુદાય ચેટ", "kannada": "ಸಮುದಾಯ ಚಾಟ್", "telugu": "కమ్యూనిటీ చాట్", "odia": "ସମ୍ପ୍ରଦାୟ ଚାଟ୍", "tamil": "சமூக அரட்டை", "marathi": "समुदाय गप्पा", "malayalam": "കമ്മ్యూനിറ്റി ചാറ്റ്", "bengali": "কমিউনিটি চ্যাট", "english": "Community chat" },
             "rate_workplace": { "hindi": "कार्यस्थल को रेट करें", "gujarati": "કાર્યસ્થળને રેટ કરો", "kannada": "ಕೆಲಸದ ಸ್ಥಳವನ್ನು ರೇಟ್ ಮಾಡಿ", "telugu": "కార్యస్థలాన్ని రేట్ చేయండి", "odia": "କର୍ମକ୍ଷେତ୍ରକୁ ରେଟ୍ କରନ୍ତୁ", "tamil": "பணியிடத்தை மதிப்பிடுங்கள்", "marathi": "कामाच्या ठिकाणाला रेट करा", "malayalam": "ജോലിസ്ഥലം റേറ്റ് ചെയ്യുക", "bengali": "কর্মক্ষেত্রকে রেট দিন", "english": "Rate Workplace" },
             "get_help": { "hindi": "मदद लें", "gujarati": "મદદ મેળવો", "kannada": "ಸಹಾಯ ಪಡೆಯಿರಿ", "telugu": "సహాయం పొందండి", "odia": "ସାହାଯ୍ୟ ପାଆନ୍ତୁ", "tamil": "உதவி பெறு", "marathi": "मदत मिळवा", "malayalam": "സഹായം നേടുക", "bengali": "সাহায্য পান", "english": "Get Help" },
             "next": { "hindi": "अगला", "gujarati": "આગળ", "kannada": "ಮುಂದೆ", "telugu": "తరువాత", "odia": "ପରବର୍ତ୍ତୀ", "tamil": "அடுத்து", "marathi": "पुढे", "malayalam": "അടുത്തത്", "bengali": "পরবর্তী", "english": "Next" },
@@ -850,7 +796,8 @@
             "pay": { "hindi": "वेतन", "gujarati": "પગાર", "kannada": "ಪಾವತಿ", "telugu": "చెల్లింపు", "odia": "ଦରମା", "tamil": "சம்பளம்", "marathi": "पगार", "malayalam": "ശമ്പളം", "bengali": "বেতন", "english": "Pay" },
             "manager": { "hindi": "मैनेजर", "gujarati": "મેનેજર", "kannada": "ವ್ಯವಸ್ಥಾಪಕರು", "telugu": "మేనేజర్", "odia": "ପରିଚାଳକ", "tamil": "மேலாளர்", "marathi": "व्यवस्थापक", "malayalam": "മാനേജർ", "bengali": "ম্যানেজার", "english": "Manager" },
             "experience": { "hindi": "अनुभव", "gujarati": "અનુભવ", "kannada": "ಅನುಭವ", "telugu": "అనుభవం", "odia": "ଅଭିଜ୍ଞତା", "tamil": "அனுபவம்", "marathi": "अनुभव", "malayalam": "അനുഭവം", "bengali": "অভিজ্ঞতা", "english": "Experience" },
-            "optional": { "hindi": "(वैकल्पिक)", "gujarati": "(વૈકલ્પિક)", "kannada": "(ಐಚ್ಛಿಕ)", "telugu": "(ఐచ్ఛికం)", "odia": "(ବୈକଳ୍ପିକ)", "tamil": "(விருப்ப)", "marathi": "(पर्यायी)", "malayalam": "(ഓപ്ഷണൽ)", "bengali": "(ঐচ্ছিক)", "english": "(Optional)" }
+            "optional": { "hindi": "(वैकल्पिक)", "gujarati": "(વૈકલ્પિક)", "kannada": "(ಐಚ್ಛಿಕ)", "telugu": "(ఐచ్ఛికం)", "odia": "(ବୈକଳ୍ପିକ)", "tamil": "(விருப்ப)", "marathi": "(पर्यायी)", "malayalam": "(ഓപ്ഷണൽ)", "bengali": "(ঐচ্ছিক)", "english": "(Optional)" },
+            "submit": { "hindi": "सबमिट करें", "gujarati": "સબમિટ કરો", "kannada": "ಸಲ್ಲಿಸಿ", "telugu": "సమర్పించు", "odia": "ଜମା କରନ୍ତୁ", "tamil": "சமர்ப்பிக்கவும்", "marathi": "सबमिट करा", "malayalam": "സമർപ്പിക്കുക", "bengali": "জমা দিন", "english": "Submit" }
         };
         
         const languageSpeechMap = {
@@ -1084,6 +1031,69 @@
             });
         });
 
+        submitRatingBtn.addEventListener('click', () => {
+            // 1. Gather data
+            const selectedSmiley = document.querySelector('.smiley-btn.smiley-selected');
+            const rating = selectedSmiley ? selectedSmiley.dataset.rating : 'not-rated';
+            const companyName = companyNameInput.value.trim();
+            const pay = payInput.value.trim();
+            const manager = managerInput.value.trim();
+            const experience = experienceInput.value.trim();
+
+            const ratingInfo = {
+                rating,
+                companyName,
+                pay,
+                manager,
+                experience
+            };
+
+            // 2. Create JSON and download
+            const jsonData = JSON.stringify(ratingInfo, null, 2);
+            const blob = new Blob([jsonData], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const dateTimePrefix = `${year}-${month}-${day}_${hours}-${minutes}-${seconds}`;
+            const fileName = `${dateTimePrefix}-ratingInfo.json`;
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            // 3. Show splash screen and navigate
+            ratingSplashScreen.classList.remove('hidden');
+            ratingSplashScreen.classList.add('flex');
+
+            setTimeout(() => {
+                ratingSplashScreen.classList.add('hidden');
+                ratingSplashScreen.classList.remove('flex');
+
+                rateWorkplacePage.classList.add('hidden');
+                homePage.classList.remove('hidden');
+                homePage.classList.add('flex');
+
+                // Reset the rating form for next time
+                companyNameInput.value = '';
+                payInput.value = '';
+                managerInput.value = '';
+                experienceInput.value = '';
+                smileyButtons.forEach(btn => btn.classList.remove('smiley-selected'));
+
+            }, 2500); // show splash for 2.5 seconds
+        });
+
         stateButtons.forEach(button => {
             button.addEventListener('click', () => {
                 stateButtons.forEach(btn => btn.classList.remove('selected'));
@@ -1140,6 +1150,8 @@
         
         homeNavButtons.forEach(button => {
             button.addEventListener('click', () => {
+                // Hide all pages
+                welcomePage.classList.add('hidden');
                 languagePage.classList.add('hidden');
                 infoPage.classList.add('hidden');
                 findWorkPage.classList.add('hidden');
@@ -1150,6 +1162,7 @@
                 rateWorkplacePage.classList.add('hidden');
                 getHelpPage.classList.add('hidden');
 
+                // Show home page
                 homePage.classList.remove('hidden');
                 homePage.classList.add('flex');
             });
@@ -1180,6 +1193,7 @@
 
         if (recognition) {
             setupMicButton(micButtonLang, 'lang', true);
+            setupMicButton(micButtonHome, 'home-navigation', true);
             setupMicButton(micNameButton, nameInput);
             setupMicButton(micPhoneButton, phoneInput);
             setupMicButton(micFindWorkButton, 'find-work-location', true);
@@ -1198,6 +1212,7 @@
                 if (activeRecognitionTarget === 'lang') micButtonLang.classList.add('listening');
                 if (activeRecognitionTarget === 'find-work-location') micFindWorkButton.classList.add('listening');
                 if (activeRecognitionTarget === 'work-type') micWorkTypeButton.classList.add('listening');
+                if (activeRecognitionTarget === 'home-navigation') micButtonHome.classList.add('listening');
             };
 
             recognition.onresult = (event) => {
@@ -1233,6 +1248,28 @@
                     } else {
                         console.log(`No work type match found for "${spokenText}"`);
                     }
+                } else if (activeRecognitionTarget === 'home-navigation') {
+                    const spokenTextClean = spokenText.trim().toLowerCase();
+                    const commands = {
+                        'find_work': findWorkButton,
+                        'rate_workplace': rateWorkplaceButton,
+                        'community_chat': communityChatButton,
+                        'get_help': getHelpButton
+                    };
+
+                    let commandFound = false;
+                    for (const key in commands) {
+                        const translatedCommand = (translations[key][selectedLanguageKey] || translations[key]['english']).toLowerCase();
+                        if (spokenTextClean.includes(translatedCommand)) {
+                            commands[key].click();
+                            commandFound = true;
+                            break; 
+                        }
+                    }
+
+                    if (!commandFound) {
+                        console.log(`No command match found for "${spokenText}"`);
+                    }
                 } else if (activeRecognitionTarget) {
                     if (activeRecognitionTarget === phoneInput || activeRecognitionTarget === payInput) {
                         const numericOnly = spokenText.replace(/[^0-9]/g, '');
@@ -1253,6 +1290,7 @@
                 if (activeRecognitionTarget === 'lang') micButtonLang.classList.remove('listening');
                 if (activeRecognitionTarget === 'find-work-location') micFindWorkButton.classList.remove('listening');
                 if (activeRecognitionTarget === 'work-type') micWorkTypeButton.classList.remove('listening');
+                if (activeRecognitionTarget === 'home-navigation') micButtonHome.classList.remove('listening');
                 isRecognizing = false;
                 activeRecognitionTarget = null;
             };
@@ -1319,7 +1357,8 @@
                 'pay-label': 'pay',
                 'manager-label': 'manager',
                 'experience-label': 'experience',
-                'manager-optional-span': 'optional'
+                'manager-optional-span': 'optional',
+                'submit-rating-btn': 'submit'
             });
         }
 
@@ -1366,4 +1405,5 @@
 
 </body>
 </html>
+
 
